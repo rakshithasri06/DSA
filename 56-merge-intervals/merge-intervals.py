@@ -1,0 +1,24 @@
+class Solution(object):
+    def merge(self, intervals):
+        if not intervals:
+            return []
+
+        intervals.sort()
+        result = [intervals[0]]
+
+        for start, end in intervals[1:]:
+            last_end = result[-1][1]
+
+            if start <= last_end:  # overlap
+                result[-1][1] = max(last_end, end)
+            else:
+                result.append([start, end])
+
+        return result
+
+
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        
