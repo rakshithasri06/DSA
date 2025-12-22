@@ -1,19 +1,16 @@
 class Solution(object):
-    def merge(self, intervals):
-        if not intervals:
+    def merge(self, interval):
+        if not interval:
             return []
 
-        intervals.sort()
-        result = [intervals[0]]
-
-        for start, end in intervals[1:]:
-            last_end = result[-1][1]
-
-            if start <= last_end:  # overlap
-                result[-1][1] = max(last_end, end)
+        interval.sort()
+        result=[interval[0]] #result=[1,3]
+        for i in (interval[1:]):
+            j=result[-1] #j=[1,3]
+            if j[1]>=i[0]: #3>2
+                result[-1]=[j[0],max(j[-1],i[-1])]
             else:
-                result.append([start, end])
-
+                result.append(i)
         return result
 
 
