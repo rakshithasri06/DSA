@@ -4,10 +4,7 @@ class Solution(object):
         for i in s:
             if i.isalnum():
                 d+=i.lower()
-        if d[::-1]==d:
-            return True
-        else:
-            return False
+        return d==d[::-1]
 
         """
         :type s: str
