@@ -2,9 +2,9 @@ class Solution(object):
     def minimumDifference(self, nums, k):
         left=0
         min_diff=float("inf")
-
+        nums.sort()
         for right in range(k,len(nums)+1):
-            nums.sort()
+            
             window=nums[left:right]
             diff=nums[right-1]-nums[left]
             min_diff=min(min_diff,diff)
