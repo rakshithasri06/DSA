@@ -5,7 +5,6 @@ class Solution(object):
         nums.sort()
         for right in range(k,len(nums)+1):
             
-            window=nums[left:right]
             diff=nums[right-1]-nums[left]
             min_diff=min(min_diff,diff)
 
