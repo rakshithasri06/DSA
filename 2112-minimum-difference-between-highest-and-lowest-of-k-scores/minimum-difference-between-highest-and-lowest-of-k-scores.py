@@ -7,8 +7,7 @@ class Solution(object):
             nums.sort()
             window=nums[left:right]
             diff=max(window)-min(window)
-            if min_diff>= diff:
-                min_diff=diff
+            min_diff=min(min_diff,diff)
 
             left+=1
         return(min_diff)
