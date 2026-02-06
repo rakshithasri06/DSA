@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int missingNum(vector<int>& arr) {
+        
+        long long n = arr.size() + 1;
+
+        long long expected = n*(n+1)/2;
+        long long result = 0;
+
+        for(int i=0;i<arr.size();i++){
+            result += arr[i];
+        }
+        
+        return expected - result;
+    }
+};
