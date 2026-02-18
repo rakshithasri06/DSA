@@ -1,13 +1,13 @@
 class Solution(object):
     def reverseList(self, head):
-        
-        # base case
-        if head is None or head.next is None:
-            return head
-        
-        newHead = self.reverseList(head.next)
 
-        head.next.next = head
-        head.next = None
+        prev = None
+        curr = head
 
-        return newHead
+        while curr:
+            nxt = curr.next      # store next node
+            curr.next = prev     # reverse pointer
+            prev = curr          # move prev forward
+            curr = nxt           # move curr forward
+
+        return prev
