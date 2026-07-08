@@ -1,39 +1,35 @@
-class Solution(object):
+class Solution:
     def threeSum(self, nums):
+        res = []
         nums.sort()
-        result = []
 
-        for i in range(len(nums) - 2):
+        for i, a in enumerate(nums):
 
             # Skip duplicate first elements
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i > 0 and a == nums[i - 1]:
                 continue
 
-            left = i + 1
-            right = len(nums) - 1
+            l = i + 1
+            r = len(nums) - 1
 
-            while left < right:
+            while l < r:
 
-                total = nums[i] + nums[left] + nums[right]
+                threeSum = a + nums[l] + nums[r]
 
-                if total == 0:
-                    result.append([nums[i], nums[left], nums[right]])
+                if threeSum > 0:
+                    r -= 1
 
-                    left += 1
-                    right -= 1
-
-                    # Skip duplicate left values
-                    while left < right and nums[left] == nums[left - 1]:
-                        left += 1
-
-                    # Skip duplicate right values
-                    while left < right and nums[right] == nums[right + 1]:
-                        right -= 1
-
-                elif total < 0:
-                    left += 1
+                elif threeSum < 0:
+                    l += 1
 
                 else:
-                    right -= 1
+                    res.append([a, nums[l], nums[r]])
 
-        return result
+                    # Move left pointer
+                    l += 1
+
+                    # Skip duplicate second elements
+                    while l < r and nums[l] == nums[l - 1]:
+                        l += 1
+
+        return res
