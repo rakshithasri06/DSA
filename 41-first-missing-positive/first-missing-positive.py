@@ -10,7 +10,7 @@ class Solution(object):
         c=1
         for i in range(0,len(nums)):
             if nums[i]<=0:
-                pass 
+                continue
             elif nums[i]==c:
                 if len!=1 or nums[i-1]!=nums[i]:
                     c+=1
