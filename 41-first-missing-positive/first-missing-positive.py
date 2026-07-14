@@ -8,11 +8,12 @@ class Solution(object):
         nums.append(0)"""
         nums.sort()
         c=1
-        for i in range(0,len(nums)):
+        d=len(nums)
+        for i in range(0,d):
             if nums[i]<=0:
                 continue
             elif nums[i]==c:
-                if len!=1 or nums[i-1]!=nums[i]:
+                if d or nums[i-1]!=nums[i]:
                     c+=1
             
         return (c)
