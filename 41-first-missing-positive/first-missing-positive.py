@@ -12,9 +12,11 @@ class Solution(object):
         for i in range(0,d):
             if nums[i]<=0:
                 continue
-            elif nums[i]==c:
+            if nums[i]==c:
                 if i==0 or nums[i-1]!=nums[i]:
                     c+=1
+            elif nums[i]>c:
+                return c
             
         return (c)
         
