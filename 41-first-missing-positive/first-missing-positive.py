@@ -13,7 +13,7 @@ class Solution(object):
             if nums[i]<=0:
                 continue
             elif nums[i]==c:
-                if d or nums[i-1]!=nums[i]:
+                if i==0 or nums[i-1]!=nums[i]:
                     c+=1
             
         return (c)
