@@ -9,13 +9,8 @@ class Solution(object):
                 
             if nums[i] == 1:
                 c=c+1
-                if i==(l-1):
-                    if d==0 or d<c:
-                        d=c
+                d=max(d,c)
             else:
-                if d<=c:
-                    d=c
-                
                 c=0
         return (d)
         """
