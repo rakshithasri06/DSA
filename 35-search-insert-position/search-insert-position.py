@@ -1,17 +1,20 @@
 class Solution(object):
     def searchInsert(self, nums, target):
-        l,r=0,len(nums)-1
+        l=0
+        r=len(nums)-1
+        pos=len(nums)
         while l<=r:
             middle=(l+r)//2
-
             if nums[middle]==target:
-                return middle
-
-            elif nums[middle] < target:
-                l=middle+1
-            else:
+                pos=middle
+                return(pos)
+            elif nums[middle] > target :
+                pos=middle
                 r=middle-1
-        return (l)
+            else:
+                l=middle+1
+        return (pos)
+    
         """
         :type nums: List[int]
         :type target: int
