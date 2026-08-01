@@ -1,19 +1,25 @@
 class Solution(object):
-    def maxVowels(self, a, k):
-        window_max=c=0
-        for i in range(0,len(a[:k])):
-            if a[i] in "aeiou":
+    def maxVowels(self, s, k):
+        l=0
+        r=k
+        n=s[l:r]
+        c=0
+        maxi=0
+        for i in n:
+            if i in "aeiou":
                 c=c+1
-        window_max=c
-        for j in range(k,len(a)):
-            if a[j-k] in "aeiou":
-                c=c-1
-            if a[j] in "aeiou":
-                c=c+1
-            else:
-                pass
-            window_max=max(c,window_max)
-        return(window_max)
+            maxi=c
+        while r<len(s):
+            if s[l] in "aeiou":
+                c-=1
+            if s[r] in "aeiou":
+                c+=1
+            l+=1
+            r+=1
+            maxi=max(maxi,c)
+        return maxi
+
+            
         """
         :type s: str
         :type k: int
